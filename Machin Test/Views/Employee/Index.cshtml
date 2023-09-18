@@ -1,0 +1,45 @@
+﻿@using DataClass.Models
+@model IEnumerable<DataClass.Models.Employee>
+
+<form asp-action="Index">
+    <div>
+        <input type="text" name="sreach" placeholder="Serch Employee" />
+        <button type="submit" id="btnSearch">Search</button>
+    </div>
+
+</form>
+
+@if(Model !=null && Model.Count()>0)
+{
+   
+    <a asp-action="Create"> Create New</a>
+    <h2> All Employees</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                
+                <th>Name</th>
+                <th>Email</th>
+                <th>Mobile Number</th>
+                <th>Gender</th>
+                <th>Address</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(Employee Emp in Model)
+            {
+                <tr>
+                  
+                  
+                    <td>@Emp.Name</td>
+                    <td>@Emp.Email</td>
+                    <td>@Emp.MobileNumber</td>
+                    <td>@Emp.Gender</td>
+                    <td>@Emp.Address</td>
+                    
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
